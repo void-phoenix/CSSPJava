@@ -7,6 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import small.problems.fibonacci.DynamicFibonacciCalculator;
 import small.problems.fibonacci.FibonacciCalculator;
 import small.problems.fibonacci.RecursiveFibonacciCalculator;
 import small.problems.fibonacci.RecursiveFibonacciCalculatorWithMemory;
@@ -38,7 +39,9 @@ public class FibonacciCalculatorTest {
 
     @Parameterized.Parameters
     public static List<FibonacciCalculator> implementations() {
-        return List.of(new RecursiveFibonacciCalculator(), new RecursiveFibonacciCalculatorWithMemory());
+        return List.of(new RecursiveFibonacciCalculator(),
+                new RecursiveFibonacciCalculatorWithMemory(),
+                new DynamicFibonacciCalculator());
     }
 
     @Test
