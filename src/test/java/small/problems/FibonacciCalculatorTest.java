@@ -1,7 +1,9 @@
 package small.problems;
 
 
+import org.junit.After;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -24,13 +26,23 @@ public class FibonacciCalculatorTest {
         this.calculator = calculator;
     }
 
+    @Before
+    public void resetStatistics() {
+        calculator.reset();
+    }
+
+    @After
+    public void showStatistics() {
+        System.out.println("The calculator.resultFor method was called for " + calculator.numberOfMethodCalls() + " times");
+    }
+
     @Parameterized.Parameters
     public static List<FibonacciCalculator> implementations() {
         return List.of(new RecursiveFibonacciCalculator(), new RecursiveFibonacciCalculatorWithMemory());
     }
 
     @Test
-    public void testNegativeValue() {
+    public void testNegativeValue() { ;
         Assert.assertThrows(IllegalArgumentException.class, () -> calculator.resultFor(-1));
     }
 
